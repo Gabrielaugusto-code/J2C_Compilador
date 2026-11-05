@@ -1,0 +1,79 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+public class bln
+extends blg {
+    private float a;
+    private double aB;
+    private double aC;
+    private double aD;
+
+    public bln(afs afs2, double d2, double d3, double d4, double d5, double d6, double d7) {
+        super(afs2, d2, d3, d4, d5, d6, d7);
+        this.v = d5;
+        this.w = d6;
+        this.x = d7;
+        this.aB = this.s = d2;
+        this.aC = this.t = d3;
+        this.aD = this.u = d4;
+        float f2 = this.Z.nextFloat() * 0.6f + 0.4f;
+        this.a = this.h = this.Z.nextFloat() * 0.2f + 0.5f;
+        this.au = this.av = 1.0f * f2;
+        this.at = this.av;
+        this.au *= 0.3f;
+        this.at *= 0.9f;
+        this.g = (int)(Math.random() * 10.0) + 40;
+        this.X = true;
+        this.k((int)(Math.random() * 8.0));
+    }
+
+    @Override
+    public void a(bna bna2, float f2, float f3, float f4, float f5, float f6, float f7) {
+        float f8 = ((float)this.f + f2) / (float)this.g;
+        f8 = 1.0f - f8;
+        f8 *= f8;
+        f8 = 1.0f - f8;
+        this.h = this.a * f8;
+        super.a(bna2, f2, f3, f4, f5, f6, f7);
+    }
+
+    @Override
+    public int c(float f2) {
+        int n2 = super.c(f2);
+        float f3 = (float)this.f / (float)this.g;
+        f3 *= f3;
+        f3 *= f3;
+        int n3 = n2 & 0xFF;
+        int n4 = n2 >> 16 & 0xFF;
+        if ((n4 += (int)(f3 * 15.0f * 16.0f)) > 240) {
+            n4 = 240;
+        }
+        return n3 | n4 << 16;
+    }
+
+    @Override
+    public float d(float f2) {
+        float f3 = super.d(f2);
+        float f4 = (float)this.f / (float)this.g;
+        f4 = f4 * f4 * f4 * f4;
+        return f3 * (1.0f - f4) + f4;
+    }
+
+    @Override
+    public void h() {
+        float f2;
+        this.p = this.s;
+        this.q = this.t;
+        this.r = this.u;
+        float f3 = f2 = (float)this.f / (float)this.g;
+        f2 = -f2 + f2 * f2 * 2.0f;
+        f2 = 1.0f - f2;
+        this.s = this.aB + this.v * (double)f2;
+        this.t = this.aC + this.w * (double)f2 + (double)(1.0f - f3);
+        this.u = this.aD + this.x * (double)f2;
+        if (this.f++ >= this.g) {
+            this.A();
+        }
+    }
+}
+
