@@ -1,0 +1,5 @@
+PS D:\Projetos\J2C> g++ TopazionCore.cpp -o TopazionCore.exe -lmingw32 -lSDL2main -lSDL2 -lopengl32
+PS D:\Projetos\J2C> ./TopazionCore.exe    
+oi
+PS D:\Projetos\J2C> 
+
